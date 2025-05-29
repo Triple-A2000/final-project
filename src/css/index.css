@@ -18,6 +18,9 @@
   box-sizing: border-box;
   font-family: var(--font);
   color: var(--font-color);
+}
+
+body {
   background-color: var(--background);
 }
 
@@ -60,10 +63,56 @@
 /*                      */
 /*----------------------*/
 
+
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
 header {
   padding: 20px 0;
   border-bottom: 2px solid var(--alternate-background);
+  background-color: #fff;
 }
+
+footer {
+  padding: 20px 0;
+  margin-top: auto;
+  border-top: 2px solid var(--alternate-background);
+  background-color: #fff;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+footer p {
+  width: 100%;
+  text-align: center;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--font-color);
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: var(--alternate-font);
+}
+
+nav ul li a.active {
+  font-weight: bold;
+  border-bottom: 2px solid var(--font-color);
+}
+
 
 
 
