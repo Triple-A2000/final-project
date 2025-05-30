@@ -7,7 +7,7 @@
 :root {
   --background: #EAF4FE;
   --alternate-background: #EEF8FF;
-  --font-color: #0571B9;
+  --font-color: #000;
   --alternate-font: #508BA9;
   --font: "Source Sans 3", sans-serif;
 }
@@ -56,6 +56,12 @@ body {
 .gap-40 {
   gap: 40px;
 }
+
+section {
+  margin-top: 30px;
+}
+
+
 
 /*----------------------*/
 /*                      */
@@ -126,10 +132,41 @@ nav ul li a.active {
 /*                      */
 /*----------------------*/
 
+.product-pic {
+  flex: 0 0 calc(55% - 20px);
+  max-width: calc(55% - 20px);
+  background-color: #fff;
+  height: 500px;
+  object-fit: contain;
+}
 
+.product-info {
+  flex: 0 0 calc(45% - 20px);
+  max-width: calc(45% - 20px);
+  height: 200px;
 
+  h2, p, button {
+    margin-top: 30px;
+  }
+}
 
+.similar-products ul {
+  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    
+    img {
+      height: 250px;
+    }
+  }
 
+}
 
 /*----------------------*/
 /*                      */
