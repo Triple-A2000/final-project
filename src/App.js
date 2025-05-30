@@ -50,7 +50,6 @@ function App() {
         <Routes>
           <Route exact path='/product' element={<Product />} />
         </Routes>
-        <Product setProductId={setProductId} similar={similar} product={product}/>
       </div>
     </main>
   );
