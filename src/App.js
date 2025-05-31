@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 
 
+
 function App() {
   
   const URL = 'https://fakestoreapi.com/products';
