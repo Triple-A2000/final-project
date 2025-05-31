@@ -193,6 +193,80 @@ nav ul li a.active {
   z-index: 0;
 }
 
+/* -------------------------------*/
+/* ---- why shop with us          */
+/*--------------------------------*/
+
+.why-us-section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+  color: #000;
+}
+
+.features-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  max-width: 860px;
+  margin-inline: auto;
+}
+
+.feature-card {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 30px 25px;
+  width: 260px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.feature-card h4 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--font-color);
+  color: #111;
+}
+
+.feature-card p {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.feature-card:nth-child(1) {
+  background: url("../images/Blue-Background.png") center / cover no-repeat;
+}
+
+.feature-card:nth-child(2) {
+  background: url("../images/Green-Background.png") center / cover no-repeat;
+}
+
+.feature-card:nth-child(3) {
+  background: url("../images/Orange-Background.png") center / cover no-repeat;
+}
+
+.feature-card:nth-child(4) {
+  background: url("../images/Purple-Background.png") center / cover no-repeat;
+}
+
 /*----------------------*/
 /*                      */
 /*   Product Page       */
