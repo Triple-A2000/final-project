@@ -267,6 +267,36 @@ nav ul li a.active {
   background: url("../images/Purple-Background.png") center / cover no-repeat;
 }
 
+
+/* ----------------------*/
+/*       ABOUT US        */
+/*-----------------------*/
+
+
+.about-us-section {
+  padding: 80px 20px;
+  text-align: center;
+  max-width: 960px;
+  margin: 0 auto;
+  margin-top: -40px;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: var(--alternate-font);
+}
+
+.about-description {
+  font-size: 2rem;
+  color: #333;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+
 /*----------------------*/
 /*                      */
 /*   Product Page       */
