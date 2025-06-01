@@ -8,7 +8,7 @@ function Header() {
         <nav>
           <ul className="flex gap-20">
             <li><NavLink to="/" className={({ isActive }) => isActive ? 'active' : ''}>Home</NavLink></li>
-            <li><NavLink to="/product" className={({ isActive }) => isActive ? 'active' : ''}>Product</NavLink></li>
+            {/* <li><NavLink to="/product" className={({ isActive }) => isActive ? 'active' : ''}>Product</NavLink></li> */}
             <li><NavLink to="/cart" className={({ isActive }) => isActive ? 'active' : ''}>Cart</NavLink></li>
           </ul>
         </nav>
