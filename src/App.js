@@ -1,4 +1,5 @@
 import Product from './pages/Product';
+import Cart from "./pages/Cart";
 import axios from 'axios';
 import { useState, useEffect } from "react";
 import { Routes, Route } from 'react-router-dom';
@@ -34,10 +35,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home products={products}/>} />
           <Route path="product/:id" element={<Product />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </main>
       < Footer />
-    
     </>
   );
 }

@@ -3,6 +3,7 @@ import axios from "axios";
 import ProductInfo from "../components/ProductInfo";
 import SimilarProducts from "../components/SimilarProducts";
 import { useParams } from "react-router-dom"; // Recommended by ChatGPT.
+import { useCart } from "../context/CartContext";
 
 
 function Product() {
@@ -10,6 +11,7 @@ function Product() {
   const URL = 'https://fakestoreapi.com/products';
 
   const { id } = useParams();
+  const { addToCart } = useCart();
 
   const [product, setProduct] = useState(null);
   const [similar, setSimilar] = useState([]);
@@ -44,10 +46,15 @@ function Product() {
     fetchSimilar();
   }, [product]);
 
-
   return (
     <section className="product-page gap-20">
       <ProductInfo product={product} />
+      <button
+        onClick={() => addToCart(product)}
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      >
+        Add to Cart
+      </button>
       <SimilarProducts similar={similar} />
     </section>
   )
