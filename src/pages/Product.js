@@ -50,12 +50,7 @@ function Product({ cart, addToCart, getQuantity }) {
 
   return (
     <section className="product-page gap-20 p-4">
-      <ProductInfo product={product} />
-      {product && (
-        <>
-          <AddToCartButton product={product} addToCart={addToCart} quantity={quantityInCart} />
-        </>
-      )}
+      <ProductInfo product={product} onAddToCart={addToCart} quantityInCart={quantityInCart} />
       <SimilarProducts similar={similar} />
     </section>
   );

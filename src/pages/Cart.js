@@ -1,23 +1,45 @@
-import CartItem from "../components/CartItem";
+const Cart = ({ cart, addToCart, removeFromCart }) => {
+  const getItemTotal = (item) => item.price * item.quantity;
 
-function Cart({ cart, addToCart, removeFromCart }) {
+  const getCartTotal = () => {
+    return cart.reduce((total, item) => total + getItemTotal(item), 0).toFixed(2);
+  };
+
   return (
-    <section className="cart-page p-4">
-      <h2 className="text-2xl font-bold mb-4">Your Cart</h2>
+    <section>
+      <h2>Your Cart</h2>
+
       {cart.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
-        cart.map((item) => (
-          <CartItem
-            key={item.id}
-            item={item}
-            addToCart={addToCart}
-            removeFromCart={removeFromCart}
-          />
-        ))
+        <div>
+          {cart.map((item) => (
+            <div key={item.id}>
+              <div>
+                <img src={item.image} alt={item.title} />
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>Price: ${item.price.toFixed(2)}</p>
+                  <p>Quantity: {item.quantity}</p>
+                  <p>Total: ${getItemTotal(item).toFixed(2)}</p>
+                </div>
+              </div>
+
+              <div>
+                <button onClick={() => removeFromCart(item.id)}>-</button>
+                <button onClick={() => addToCart(item)}>+</button>
+              </div>
+            </div>
+          ))}
+
+          <div>
+            <p>Total Price: ${getCartTotal()}</p>
+            <button>Proceed to Checkout</button>
+          </div>
+        </div>
       )}
     </section>
   );
-}
+};
 
 export default Cart;
