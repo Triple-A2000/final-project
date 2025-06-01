@@ -14,11 +14,12 @@ function Cart() {
             <li key={item.id} className="border p-4 rounded shadow">
               <h3 className="text-lg font-semibold">{item.title}</h3>
               <p>${item.price}</p>
+              <p>Quantity: {item.quantity}</p>
               <button
                 onClick={() => removeFromCart(item.id)}
                 className="mt-2 text-sm bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded"
               >
-                Remove
+                Remove One
               </button>
             </li>
           ))}

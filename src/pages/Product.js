@@ -11,7 +11,7 @@ function Product() {
   const URL = 'https://fakestoreapi.com/products';
 
   const { id } = useParams();
-  const { addToCart } = useCart();
+  const { addToCart, getQuantity } = useCart();
 
   const [product, setProduct] = useState(null);
   const [similar, setSimilar] = useState([]);
@@ -46,15 +46,22 @@ function Product() {
     fetchSimilar();
   }, [product]);
 
+  const quantityInCart = getQuantity(product?.id);
+
   return (
     <section className="product-page gap-20">
       <ProductInfo product={product} />
       <button
         onClick={() => addToCart(product)}
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded shadow"
       >
         Add to Cart
       </button>
+      {quantityInCart > 0 && (
+        <p className="mt-2 text-green-600 font-semibold">
+          Added to cart: {quantityInCart}
+        </p>
+      )}
       <SimilarProducts similar={similar} />
     </section>
   )

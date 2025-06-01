@@ -14,6 +14,7 @@ function App() {
   const URL = 'https://fakestoreapi.com/products';
 
   const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     const fetchProducts = async() => {
@@ -27,6 +28,38 @@ function App() {
 
     fetchProducts();
   }, []);
+
+  const addToCart = (product) => {
+    setCart(prev => {
+      const existingItem = prev.find(item => item.id === product.id);
+      if (existingItem) {
+        return prev.map(item =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      } else {
+        return [...prev, { ...product, quantity: 1 }];
+      }
+    });
+  };
+
+  const removeFromCart = (id) => {
+    setCart(prev =>
+      prev
+        .map(item =>
+          item.id === id
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        )
+        .filter(item => item.quantity > 0)
+    );
+  };
+
+  const getQuantity = (id) => {
+    const item = cart.find(item => item.id === id);
+    return item ? item.quantity : 0;
+  };
   
   return (
     <>
@@ -34,8 +67,8 @@ function App() {
       <main className="container">
         <Routes>
           <Route path="/" element={<Home products={products}/>} />
-          <Route path="product/:id" element={<Product />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route path="product/:id" element={<Product cart={cart} addToCart={addToCart} getQuantity={getQuantity} />} />
+          <Route path="product/:id" element={<Cart cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} />} />
         </Routes>
       </main>
       < Footer />
