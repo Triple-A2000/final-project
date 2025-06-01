@@ -1,4 +1,4 @@
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function SimilarProducts(props) {
   return(
@@ -7,17 +7,14 @@ function SimilarProducts(props) {
       <ul>
         {props.similar.map(product => (
           <li key={product.id}  >
-            <a onClick={e => {
-                e.preventDefault();       // prevent page jump
-                props.setProductId(product.id); // set the ID on click
-              }}>
+            <Link to={`/product/${product.id}`}>
               <img src={product.image} />
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
     </div>
-  )
+  );
 }
 
 export default SimilarProducts;

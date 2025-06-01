@@ -12,51 +12,28 @@ function App() {
   
   const URL = 'https://fakestoreapi.com/products';
 
-  const [productId, setProductId] = useState(1); // Temporary value
-  const [message, setMessage] = useState('');
-  const [product, setProduct] = useState('');
-  const [similar, setSimilar] = useState([]);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const fetchProduct = async() => {
-      try {
-        const response = await axios.get(`${URL}/${productId}`);
-        setProduct(response.data);
-
-      } catch (error) {
-        console.log(error.message);
-        setMessage('Product not found');
-      }
-    }
-    
-    fetchProduct();
-
-  }, [productId]);
-
-  useEffect(() => {
-    const fetchSimilar = async() => {
+    const fetchProducts = async() => {
       try {
         const response = await axios.get(URL);
-        setSimilar(
-          response.data.filter (
-            p => p.category === product.category && p.id !== productId
-          )
-        );
+        setProducts(response.data);
       } catch (error) {
-        console.log(error.message)
+        console.log(error.message);
       }
     }
-    fetchSimilar();
-  }, [product]);
 
-  // <Product setProductId={setProductId} similar={similar} product={product}/> Keeping this here for reference DON'T DELETE
-
+    fetchProducts();
+  }, []);
+  
   return (
     <>
       <Header />
       <main className="container">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home products={products}/>} />
+          <Route path="product/:id" element={<Product />} />
         </Routes>
       </main>
       < Footer />

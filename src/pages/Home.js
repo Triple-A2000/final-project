@@ -5,11 +5,10 @@ import AboutUs from "../components/AboutUs";
 function Home() {
   return (
     <>
-    <HeroBanner />
-    <WhyShopWithUs />
-    <AboutUs />
-
-      {/*  */} 
+      <HeroBanner />
+      <WhyShopWithUs />
+      <HomeProductSection setProductId={props.setProductId} products={props.products} />
+      <AboutUs />
     </>
   )
 }

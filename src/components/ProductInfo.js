@@ -1,5 +1,8 @@
 function ProductInfo(props) {
 
+  if (!props.product) return null;
+
+
   return(
     <div className="product-container flex gap-20">
       <img className="product-pic" src={props.product.image} alt="Product Picture" />
