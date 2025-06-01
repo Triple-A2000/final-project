@@ -3,12 +3,12 @@ import WhyShopWithUs from "../components/WhyShopWithUs";
 import AboutUs from "../components/AboutUs";
 import HomeProductSection from "../components/HomeProductSection";
 
-function Home() {
+function Home(props) {
   return (
     <>
       <HeroBanner />
       <WhyShopWithUs />
-      <HomeProductSection setProductId={props.setProductId} products={props.products} />
+      <HomeProductSection products={props.products} />
       <AboutUs />
     </>
   )
