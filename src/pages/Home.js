@@ -7,8 +7,8 @@ function Home(props) {
   return (
     <>
       <HeroBanner />
-      <WhyShopWithUs />
       <HomeProductSection products={props.products} />
+      <WhyShopWithUs />
       <AboutUs />
     </>
   )
