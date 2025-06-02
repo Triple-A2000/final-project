@@ -389,6 +389,22 @@ select {
 
 }
 
+.add-to-cart-btn {
+  background-color: #333;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #111; 
+}
+
+
 /*----------------------*/
 /*                      */
 /*   Cart Page          */
