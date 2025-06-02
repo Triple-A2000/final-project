@@ -1,6 +1,6 @@
 import "../css/index.css";
 
-const Cart = ({ cart, addToCart, removeFromCart }) => {
+const Cart = ({ cart, addToCart, decreaseQuantity, removeFromCart }) => {
   const getItemTotal = (item) => item.price * item.quantity;
 
   const getCartTotal = () => {
@@ -24,10 +24,11 @@ const Cart = ({ cart, addToCart, removeFromCart }) => {
                 <div className="cart-item-info">
                   <h3>{item.title}</h3>
                   <p>${item.price.toFixed(2)}</p>
+
                   <div className="quantity-controls">
                     <button
                       className="quantity-btn"
-                      onClick={() => removeFromCart(item.id)}
+                      onClick={() => decreaseQuantity(item.id)}
                     >
                       -
                     </button>
@@ -39,9 +40,11 @@ const Cart = ({ cart, addToCart, removeFromCart }) => {
                       +
                     </button>
                   </div>
+
                   <p>Total: ${getItemTotal(item).toFixed(2)}</p>
                 </div>
               </div>
+
               <div>
                 <button
                   className="remove-btn"
