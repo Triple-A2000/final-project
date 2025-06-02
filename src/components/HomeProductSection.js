@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function HomeProductSection(props) {
 
-    const [sortedProducts, setSortedProducts] = useState([]);
+  const [sortedProducts, setSortedProducts] = useState([]);
   const [sortBy, setSortBy] = useState(''); // Default is alphabetical
 
   useEffect(() => {
@@ -24,7 +24,7 @@ function HomeProductSection(props) {
     <section className="home-product-section">
       <h2>Explore our wide selection of products</h2>
 
-      <div className='flex'>
+      <div className='sort flex'>
         <p>Sort by</p>
         <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
           <option value="">None</option>
