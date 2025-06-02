@@ -1,5 +1,6 @@
 import Product from './pages/Product';
 import Cart from "./pages/Cart";
+import NotFound from "./pages/NotFound";
 import axios from 'axios';
 import { useState, useEffect } from "react";
 import { Routes, Route } from 'react-router-dom';
@@ -76,6 +77,8 @@ function App() {
           <Route path="/" element={<Home products={products}/>} />
           <Route path="product/:id" element={<Product cart={cart} addToCart={addToCart} getQuantity={getQuantity} />} />
           <Route path="/cart" element={<Cart cart={cart} addToCart={addToCart} decreaseQuantity={decreaseQuantity} removeFromCart={removeFromCart} />} />
+          <Route path="/not-found" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       < Footer />
