@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# Oasis - Shopping App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Oasis is a simple React-based web application that allows users to browse products, view detailed information, add items to a cart, and manage their orders. It uses the [Fake Store API](https://fakestoreapi.com/) for sample product data.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+- 🔍 Browse and view product details
+- 🛒 Add/remove items from the cart
+- ➕ Increment or decrement quantity
+- 💰 View total price per item and overall
+- 🔄 Handles invalid product pages
+- 🧭 Friendly 404 page for wrong routes
+- 📱 Responsive and clean UI
 
-### `npm start`
+## 📸 Preview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<img src="./src/screenshots/nee.png" width="600" alt="Home Page Screenshot"/>
+<img src="./src/screenshots/nee1.png" width="600" alt="Product Page Screenshot"/>
+<img src="./src/screenshots/nee2.png" width="600" alt="Cart Page Screenshot"/>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📂 Project Structure
 
-### `npm test`
+```
+src/
+├── components/       # Reusable UI components
+├── pages/            # Page components (Home, Product, Cart, etc.)
+├── css/              # Stylesheets (index.css)
+├── App.js            # Main App component
+├── index.js          # Entry point
+└── assets/           # Images/screenshots (optional)
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠️ Technologies Used
 
-### `npm run build`
+- **React** (with hooks)
+- **React Router DOM** (routing)
+- **Axios** (API requests)
+- **CSS** (custom styling)
+- **Fake Store API** (sample product data)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📦 Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/yourusername/oasis-app.git
+   cd oasis-app
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-### `npm run eject`
+3. **Run the development server**
+   ```bash
+   npm start
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🧭 Routing
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- `/` – Home page with product listings
+- `/product/:id` – Product detail page
+- `/cart` – Shopping cart page
+- Any unknown route – Redirects to **NotFound** page
+- Invalid product ID – Redirects to **Home**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🙌 Credits
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- [Fake Store API](https://fakestoreapi.com/)
+- Built by Ayomide Boye-Ogundiya (MITT Project)
 
-## Learn More
+## 📃 License
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is for educational purposes.
