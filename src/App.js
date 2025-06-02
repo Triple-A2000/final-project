@@ -29,6 +29,7 @@ function App() {
     fetchProducts();
   }, []);
 
+  // For +
   const addToCart = (product) => {
     setCart(prev => {
       const existingItem = prev.find(item => item.id === product.id);
@@ -44,7 +45,8 @@ function App() {
     });
   };
 
-  const removeFromCart = (id) => {
+  // For -
+  const decreaseQuantity = (id) => {
     setCart(prev =>
       prev
         .map(item =>
@@ -54,6 +56,11 @@ function App() {
         )
         .filter(item => item.quantity > 0)
     );
+  };
+
+  // For full removal
+  const removeFromCart = (id) => {
+    setCart(prev => prev.filter(item => item.id !== id));
   };
 
   const getQuantity = (id) => {
@@ -68,7 +75,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home products={products}/>} />
           <Route path="product/:id" element={<Product cart={cart} addToCart={addToCart} getQuantity={getQuantity} />} />
-          <Route path="/cart" element={<Cart cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} />} />
+          <Route path="/cart" element={<Cart cart={cart} addToCart={addToCart} decreaseQuantity={decreaseQuantity} removeFromCart={removeFromCart} />} />
         </Routes>
       </main>
       < Footer />
