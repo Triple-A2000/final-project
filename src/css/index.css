@@ -57,6 +57,13 @@ body {
   gap: 40px;
 }
 
+.no-underline {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 section {
   margin-top: 30px;
 }
@@ -307,17 +314,33 @@ nav ul li a.active {
   margin-top: 40px;
 }
 
+select {
+  border: 1px solid #1a1a1a6b;
+  border-radius: 5px;
+  margin-left: 5px;
+}
 
-li {
+/*----------------------*/
+/*                      */
+/*   Product Section    */
+/*                      */
+/*----------------------*/
+
+.home-product-section li {
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #fff;
   padding: 5px;
-  
+  text-decoration: none;
+
   img {
-    height: 250px;
+    height: 300px;
     object-fit: contain;
+  }
+
+  li:hover {
+    text-decoration: underline;
   }
 }
 
