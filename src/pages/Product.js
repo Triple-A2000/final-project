@@ -2,56 +2,58 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import ProductInfo from "../components/ProductInfo";
 import SimilarProducts from "../components/SimilarProducts";
-import { useParams } from "react-router-dom"; // Recommended by ChatGPT.
+import AddToCartButton from "../components/AddToCartButton";
+import { useParams } from "react-router-dom";
 
-
-function Product() {
-
-  const URL = 'https://fakestoreapi.com/products';
-
+function Product({ cart, addToCart, getQuantity }) {
+  
   const { id } = useParams();
+  const URL = 'https://fakestoreapi.com/products';
 
   const [product, setProduct] = useState(null);
   const [similar, setSimilar] = useState([]);
 
   useEffect(() => {
-    const fetchProduct = async() => {
+    const fetchProduct = async () => {
       try {
         const response = await axios.get(`${URL}/${id}`);
         setProduct(response.data);
-        console.log(response.data);
       } catch (error) {
-        console.log(error.message);
+        console.error("Failed to fetch product:", error.message);
       }
-    }
-    
-    fetchProduct();
+    };
 
+    fetchProduct();
   }, [id]);
 
   useEffect(() => {
-    const fetchSimilar = async() => {
+    const fetchSimilar = async () => {
       try {
         const response = await axios.get(URL);
-        setSimilar(
-          response.data.filter ( p => p.category === product.category && p.id !== product.id)
-          .slice(0, 4));
-        console.log(similar);
+        if (product) {
+          const filtered = response.data
+            .filter(p => p.category === product.category && p.id !== product.id)
+            .slice(0, 4);
+          setSimilar(filtered);
+        }
       } catch (error) {
-        console.log(error.message);
+        console.error("Failed to fetch similar products:", error.message);
       }
+    };
+
+    if (product) {
+      fetchSimilar();
     }
-    fetchSimilar();
   }, [product]);
 
+  const quantityInCart = getQuantity(product?.id);
 
   return (
-    <section className="product-page gap-20">
-      <ProductInfo product={product} />
+    <section className="product-page gap-20 p-4">
+      <ProductInfo product={product} onAddToCart={addToCart} quantityInCart={quantityInCart} />
       <SimilarProducts similar={similar} />
     </section>
-  )
+  );
 }
-
 
 export default Product;
