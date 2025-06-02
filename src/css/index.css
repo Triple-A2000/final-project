@@ -369,25 +369,29 @@ select {
     margin-top: 10px;
   }
 }
-
 .similar-products ul {
   gap: 20px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  
-  li {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #fff;
-    padding: 5px;
-    
-    img {
-      height: 250px;
-      object-fit: contain;
-    }
-  }
+}
 
+.similar-products ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.similar-products ul li img {
+  height: 200px;
+  width: 100%;
+  border-radius: 16px;
+  object-fit: contain;
+  overflow: hidden;
+  display: block;
 }
 
 .add-to-cart-btn {
