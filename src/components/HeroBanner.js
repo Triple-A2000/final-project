@@ -9,7 +9,7 @@ function HeroBanner() {
           Style that fits your story
         </h2>
         <p className="subhead">Clothing • Shoes • Accessories</p>
-        <Link to="/product" className="btn-primary">
+        <Link  className="btn-primary">
           Shop Now
         </Link>
       </div>
