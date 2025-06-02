@@ -473,4 +473,32 @@ li {
 /*                      */
 /*----------------------*/
 
-/* Hello */
+.notfound-container {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.notfound-container h1 {
+  font-size: 6rem;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+.notfound-container p {
+  font-size: 1.25rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.home-link {
+  padding: 0.6rem 1.2rem;
+  background-color: #333;
+  color: #fff;
+  border-radius: 0.4rem;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.home-link:hover {
+  background-color: #111;
+}

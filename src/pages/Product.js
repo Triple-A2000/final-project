@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import ProductInfo from "../components/ProductInfo";
 import SimilarProducts from "../components/SimilarProducts";
-import AddToCartButton from "../components/AddToCartButton";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function Product({ cart, addToCart, getQuantity }) {
   
   const { id } = useParams();
+  const navigate = useNavigate();
   const URL = 'https://fakestoreapi.com/products';
 
   const [product, setProduct] = useState(null);
@@ -17,14 +17,20 @@ function Product({ cart, addToCart, getQuantity }) {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(`${URL}/${id}`);
-        setProduct(response.data);
+
+        if (!response.data || !response.data.id) {
+          navigate("/not-found"); 
+        } else {
+          setProduct(response.data);
+        }
       } catch (error) {
         console.error("Failed to fetch product:", error.message);
+        navigate("/not-found");
       }
     };
 
     fetchProduct();
-  }, [id]);
+  }, [id, navigate]);
 
   useEffect(() => {
     const fetchSimilar = async () => {
